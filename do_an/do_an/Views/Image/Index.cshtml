@@ -1,0 +1,41 @@
+﻿@using Newtonsoft.Json
+@model Root
+@{  
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Image")
+            </th>
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model.images) {
+            <tr>
+                <td>
+                 @{var imagePath = @"\wwwroot\Images\"+item.file_name;}
+                    <img src="@imagePath" asp-append-version="true" height="100px">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.file_name)
+            </td>
+            <td>
+                @Html.ActionLink("Open", "OpenImage", new {  id=item.id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
