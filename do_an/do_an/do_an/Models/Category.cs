@@ -1,0 +1,8 @@
+﻿namespace do_an.Models
+{
+    public class Category
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+    }
+}
