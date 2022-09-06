@@ -24,7 +24,7 @@ namespace do_an.Models
         public Root init()
         {
             Root root = new Root();
-            using (StreamReader r = new StreamReader(@"wwwroot\MICA_210331_11.json"))
+            using (StreamReader r = new StreamReader(@"wwwroot\annotation.json"))
             {
                 string json = r.ReadToEnd();
                 root = JsonConvert.DeserializeObject<Root>(json);
@@ -34,8 +34,8 @@ namespace do_an.Models
 
         public void deleteJson()
         {
-            string rootFolder = @"wwwroot\MICA_210331_11.json";
-            string authorsFile = "MICA_210331_11.json";
+            string rootFolder = @"wwwroot\annotation.json";
+            string authorsFile = "annotation.json";
             try
             {
                 // Check if file exists with its full path    
@@ -53,7 +53,7 @@ namespace do_an.Models
 
         public void writeJson(Root _data)
         {
-            using (StreamWriter file = File.CreateText(@"wwwroot\MICA_210331_11.json"))
+            using (StreamWriter file = File.CreateText(@"wwwroot\annotation.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //serialize object directly into file stream

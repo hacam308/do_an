@@ -12,6 +12,9 @@
                 @Html.DisplayName("Image")
             </th>
             <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
                 @Html.DisplayName("Name")
             </th>
             <th>
@@ -27,6 +30,9 @@
                 <td>
                  @{var imagePath = @"\wwwroot\Images\"+item.file_name;}
                     <img src="@imagePath" asp-append-version="true" height="100px">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.file_name)
