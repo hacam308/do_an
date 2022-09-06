@@ -38,8 +38,8 @@ window.onload = function () {
                             //canvas.height = item.bbox[3] + 10;
                             canvas.width = 150 + 10;
                             canvas.height = 150 + 10;
-                            ctx.drawImage(image, item.bbox[0], item.bbox[1], item.bbox[2], item.bbox[3], 5, 5, 150, 150);
-                            //ctx.drawImage(image, item.bbox[0], item.bbox[1], item.bbox[2], item.bbox[3], 5, 5, item.bbox[2], item.bbox[3]);
+                            //ctx.drawImage(image, item.bbox[0], item.bbox[1], item.bbox[2], item.bbox[3], 5, 5, 150, 150);
+                            ctx.drawImage(image, item.bbox[0], item.bbox[1], item.bbox[2], item.bbox[3], 5, 5, item.bbox[2], item.bbox[3]);
                         }
                     });
                 });
