@@ -1,0 +1,39 @@
+﻿@model Image
+
+@{
+    ViewData["Title"] = "EditImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Root items = new Root();
+    items = items.init();
+    var annotations = items.annotations.Where(i => i.image_id == Model.id);
+    int sizeOfRoot = items.images.Count;
+    int nextId = Model.id + 1;
+    int preId = Model.id - 1;
+}
+
+  <div class="d-flex justify-content-between">
+      <div class="p-2"><button type="button" class="btn btn-warning" id="btn_cancel">Cancel</button></div>
+      <div class="p-2"><button type="button" class="btn btn-success" id="btn_save">Save</button></div>
+      <div class="">
+          <select class="form-control" id="Category" name="Category">
+            @{
+                <option value="-1">All category</option>
+                foreach(var item in items.categories){
+                    <option value="@item.id">@item.name</option>
+                }
+            }
+          </select>
+      </div>
+  </div>
+
+@section EditSection{
+    @{var imagePath = @"\wwwroot\Images\"+Model.file_name;}  
+    <img id="Image" src="@imagePath" hidden="hidden" asp-append-version="true">
+    <div id="containerImage"></div>
+
+}
+
+@section JsSection{
+    <script src="https://unpkg.com/konva@8.3.5/konva.min.js" asp-append-version="true"></script>
+    <script src="~/js/editAnnotation.js" asp-append-version="true"></script>
+}

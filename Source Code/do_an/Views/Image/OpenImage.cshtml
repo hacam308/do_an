@@ -6,7 +6,6 @@
     Root items = new Root();
     items = items.init();
     var annotations = items.annotations.Where(i => i.image_id == Model.id);
-    int firstId = items.annotations.FirstOrDefault().image_id;
     int sizeOfRoot = items.images.Count;
     int nextId = Model.id + 1;
     int preId = Model.id - 1;
@@ -15,7 +14,7 @@
 <div>
     <div style="display: flex; justify-content: center;" >
         <div style="display: flex; cursor: pointer; width: 85%; justify-content: space-between;">
-            <a class="fa fa-chevron-left" @if(preId==(firstId-1)){<text>style="cursor: no-drop;margin-left:0px;text-decoration:none;color:black;"</text>}else{<text>style="margin-left:0px;text-decoration:none;color:black;" href="./@preId"</text>} aria-hidden="true"> PREV</a>
+            <a class="fa fa-chevron-left" @if(preId==(-1)){<text>style="cursor: no-drop;margin-left:0px;text-decoration:none;color:black;"</text>}else{<text>style="margin-left:0px;text-decoration:none;color:black;" href="./@preId"</text>} aria-hidden="true"> PREV</a>
             <div class="arrows-chevron-btn">
                 @Html.ActionLink("Edit", "EditImage", new {  id=Model.id  }, new { @class = "btn btn-primary", id="btn_edit"})
             </div>
