@@ -104,10 +104,15 @@ namespace do_an.Controllers
                                 {
                                     item_anno.bbox[0] = update_bbox.x;
                                     item_anno.bbox[1] = update_bbox.y;
-                                    if (HasProperty(update_bbox, "scaleX"))
+                                    if (HasProperty(update_bbox, "scaleX") && HasProperty(update_bbox, "scaleY"))
                                     {
                                         item_anno.bbox[2] = (double)(update_bbox.width * update_bbox.scaleX);
                                         item_anno.bbox[3] = (double)(update_bbox.height * update_bbox.scaleY);
+                                        item_anno.area = (double)(item_anno.bbox[2] * item_anno.bbox[3]);
+                                    }else if(HasProperty(update_bbox, "scaleX"))
+                                    {
+                                        item_anno.bbox[2] = (double)(update_bbox.width * update_bbox.scaleX);
+                                        //item_anno.bbox[3] = (double)(update_bbox.height * update_bbox.scaleY);
                                         item_anno.area = (double)(item_anno.bbox[2] * item_anno.bbox[3]);
                                     }
                                     items.UpdateAnnotation(items.annotations, item_anno);
