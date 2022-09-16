@@ -98,7 +98,7 @@ namespace do_an.Controllers
                         dynamic update_bbox = item.attrs;
                         foreach (var item_anno in list_anno)
                         {
-                            if (HasProperty(update_bbox, "x") && HasProperty(update_bbox, "id"))
+                            if (HasProperty(update_bbox, "x") && HasProperty(update_bbox, "y") && HasProperty(update_bbox, "id"))
                             {
                                 if (update_bbox.id == item_anno.id.ToString())
                                 {
